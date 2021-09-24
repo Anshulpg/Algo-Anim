@@ -1,0 +1,9 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/hp/Desktop/Manim Project/media/videos/scene/480p15/partial_movie_files/insertionSort/3163782288_1331139988_3236837574.mp4'
+file 'file:C:/Users/hp/Desktop/Manim Project/media/videos/scene/480p15/partial_movie_files/insertionSort/2201830969_2531506304_2863281318.mp4'
+file 'file:C:/Users/hp/Desktop/Manim Project/media/videos/scene/480p15/partial_movie_files/insertionSort/2201830969_813091949_2004211291.mp4'
+file 'file:C:/Users/hp/Desktop/Manim Project/media/videos/scene/480p15/partial_movie_files/insertionSort/2201830969_2233996848_2565417715.mp4'
+file 'file:C:/Users/hp/Desktop/Manim Project/media/videos/scene/480p15/partial_movie_files/insertionSort/2201830969_947195380_329407672.mp4'
+file 'file:C:/Users/hp/Desktop/Manim Project/media/videos/scene/480p15/partial_movie_files/insertionSort/2201830969_2417956900_1846682217.mp4'
+file 'file:C:/Users/hp/Desktop/Manim Project/media/videos/scene/480p15/partial_movie_files/insertionSort/2201830969_1077744776_4038976222.mp4'
+file 'file:C:/Users/hp/Desktop/Manim Project/media/videos/scene/480p15/partial_movie_files/insertionSort/2201830969_825827875_2239740891.mp4'
