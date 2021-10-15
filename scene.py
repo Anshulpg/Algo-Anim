@@ -182,6 +182,81 @@ class binarySearch(Scene):
         binarySearch(arr,x,l)
 
 
+'''
+class insertionSort(Scene):
+    
+    def construct(self):
+        arr=takeArray()
+        n=len(arr)
+        if(n>MAX_SIZE):
+            print("Too Long input!")
+            return
+        if(n==0):
+            print("No input given")
+
+            return
+        def insertionSort(arr,l):
+            n = len(arr)
+            for i in range(1,n):
+                key = arr[i]
+                j = i-1
+                
+                if(j>=0 and key < arr[j]):
+                    pass
+                else:
+                    bubs_fill_box1 = square_swap(BLUE_D)
+                    if(j==0):
+                            
+                            bubs_fill_box1.shift((n//2-1) * LEFT)
+                    else :
+                            bubs_fill_box1.next_to(l[j-1], buff=0)
+                    self.play(FadeIn(bubs_fill_box1))
+                    self.wait(0.3)
+                    self.play(FadeOut(bubs_fill_box1))
+                while j >= 0 and key < arr[j] :
+                        arr[j + 1] = arr[j]
+                        bubs_fill_box1 = square_swap(BLUE_D)
+                        if(j==0):
+                                
+                                bubs_fill_box1.shift((n//2-1) * LEFT)
+                        else :
+                                bubs_fill_box1.next_to(l[j-1], buff=0)
+                        bubs_fill_box2 = square_swap(BLUE_D)
+                        bubs_fill_box2.next_to(l[j], buff=0)
+                        self.play(FadeIn(bubs_fill_box2))
+                        self.play(FadeIn(bubs_fill_box1))
+                        
+                        self.wait(0.1)
+                        self.play(CyclicReplace(l[j], l[j+1]))
+                        #self.play(CyclicReplace(bubs_fill_box1, bubs_fill_box2))
+                        l[j+1],l[j]=l[j],l[j+1]
+                        self.play(FadeOut(bubs_fill_box1))
+                        self.play(FadeOut(bubs_fill_box2))
+                    
+
+                        j -= 1
+                arr[j + 1] = key
+                #self.play(FadeOut(bubs_fill_box1))
+                #l[j+1]=x
+            self.wait(1)
+            #7 3 5 9 4 2
+        bubs = square_text_box(str(arr[0]), BLUE_D, GREEN_B)
+        bubs.shift((n//2-1) * LEFT)
+        l=[]
+        l.append(bubs)
+        for i in range(1,n):
+            bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
+            bubs.next_to(l[-1], buff=0)
+            l.append(bubs)
+        
+        for x in l:
+            self.play(GrowFromCenter(x))
+    
+        self.wait(1)
+        insertionSort(arr,l)
+'''
+
+
 class insertionSort(Scene):
     # color krna h blocks ko
     def construct(self):
