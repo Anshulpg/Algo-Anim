@@ -1,0 +1,16 @@
+Anshul - 
+Bubble sort
+Selectionsort
+Binary search
+Inserion(to check)
+MaxHeap
+MinHeap
+heapsort
+
+Yash - 
+Tree inordered traversal,
+postorder traversal
+,preorder traversal,
+levelorder traversal
+
+Akshika - 
