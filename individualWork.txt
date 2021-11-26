@@ -6,6 +6,7 @@ Inserion(to check)
 MaxHeap
 MinHeap
 heapsort
+linearSearch
 
 Yash - 
 Tree inordered traversal,

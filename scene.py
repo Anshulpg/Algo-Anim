@@ -147,6 +147,12 @@ class binarySearch(Scene):
 
             return
         def binarySearch(arr,x,lis):
+            
+            text_a=Text(str(x))
+            text_a.scale(0.5)
+            text_a.shift(UP*size_sq*3)
+            self.add(text_a)
+            self.wait(1)
             low=0;r=len(arr)-1
             while(low<=r):
                 m=(low+r)//2
@@ -613,6 +619,10 @@ class twoPointer(Scene):
         
         x=takeInt()
         def twoPointer(arr,n,l):
+            text_a=Text(str(x))
+            text_a.scale(0.5)
+            text_a.shift(UP*size_sq*3)
+            self.add(text_a)
             i=0
             j=n-1
             bubs_fill_box1 = square_swap(BLUE_D)
@@ -673,7 +683,58 @@ class twoPointer(Scene):
         self.wait(1)
         twoPointer(arr,n,l)
 
-
+class linearSearch(Scene):
+    
+        # problem is given an array and an integer x and you have to find the index of x in the array (if exist)
+        def construct(self):
+            arr=takeArray()
+            
+            n=len(arr)
+            if(n>MAX_SIZE):
+                print("Too Long input!")
+                return
+            if(n==0):
+                print("No input given")
+                return
+            
+            x=takeInt()
+            bubs_fill_box1 = square_swap(BLUE_D)
+            def linearSearch(arr,n,l):
+                text_a=Text(str(x))
+                text_a.scale(0.5)
+                text_a.shift(UP*size_sq*3)
+                self.add(text_a)
+                for i in range(n):
+                    if(i==0):
+                        bubs_fill_box1.next_to(l[0], buff=0)
+                        bubs_fill_box1.shift( LEFT*size_sq)
+                    else :
+                        bubs_fill_box1.next_to(l[i-1], buff=0)
+                    self.play(FadeIn(bubs_fill_box1))
+                    self.wait(0.5)
+                    if(arr[i]==x):
+                        self.play(FadeOut(bubs_fill_box1))
+                        l[i].set_fill(color=GREEN, opacity=0.6)
+                        self.wait(2.5)
+                        break
+                    else:
+                        self.play(FadeOut(bubs_fill_box1))
+                        
+                        l[i].set_fill(color=RED, opacity=0.5)
+                        self.wait(1)
+                    
+            bubs = square_text_box(str(arr[0]), BLUE_D, GREEN_B)
+            bubs.shift((n//2-1) * LEFT)
+            l=[]
+            l.append(bubs)
+            for i in range(1,n):
+                bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
+                bubs.next_to(l[-1], buff=0)
+                l.append(bubs)
+            for xa in l:
+                self.play(GrowFromCenter(xa))
+            self.wait(1)
+            linearSearch(arr,n,l)
       
            
             
