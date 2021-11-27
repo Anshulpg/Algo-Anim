@@ -33,6 +33,10 @@ class bubbleSort(Scene):
             print("Too Long input!")
             
             return
+        if(n==0):
+            print("No input given")
+
+            return
         def bubbleSort(arr,l):
             n = len(arr)
         
@@ -61,7 +65,7 @@ class bubbleSort(Scene):
                         
                         #self.wait(0.1)
                     self.play(FadeOut(bubs_fill_box1), FadeOut(bubs_fill_box2))
-                l[-i-1].set_fill(RED_B,opacity=0.5);
+                l[-i-1].set_fill(RED_B,opacity=0.5)
         bubs = square_text_box(str(arr[0]), BLUE_D, GREEN_B)
         bubs.shift((n//2-1) * LEFT)
         l=[]
@@ -737,4 +741,4 @@ class linearSearch(Scene):
             linearSearch(arr,n,l)
       
            
-            
+# next merge sort , greedy , backtrack like knight tour
