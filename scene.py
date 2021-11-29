@@ -740,5 +740,163 @@ class linearSearch(Scene):
             self.wait(1)
             linearSearch(arr,n,l)
       
-           
+
+
+# class mregeSort(Scene):
+#     # problem is given an array and you have to sort it using merge sort
+#     def construct(self):
+#         arr=takeArray()
+#         n=len(arr)
+#         if(n>MAX_SIZE):
+#             print("Too Long input!")
+#             return
+#         if(n==0):
+#             print("No input given")
+#             return 
+#         def merge(left,right,l):
+#             arr=[0]*(len(left)+len(right))
+#             i=0
+#             j=0
+#             k=0
+#             while(i<len(left) and j<len(right)):
+#                 if(left[i]<right[j]):
+#                     arr[k]=left[i]
+#                     i=i+1
+#                 else:
+#                     arr[k]=right[j]
+#                     j=j+1
+#                 k=k+1
+#             while(i<len(left)):
+#                 arr[k]=left[i]
+#                 i=i+1
+#                 k=k+1
+#             while(j<len(right)):
+#                 arr[k]=right[j]
+#                 j=j+1
+#                 k=k+1
+#             return arr
+#         def mergeSort(arr,n,l):
+#             if(n==1):
+#                 return arr
+#             mid=n//2
+#             x=[]
+#             for i in range(mid) :
+#                 bb=square_swap(BLUE_D)
+#                 if(i==0):
+#                         bb.next_to(l[0], buff=0)
+#                         bb.shift( LEFT*size_sq)
+#                 else :
+#                         bb.next_to(l[i-1], buff=0)
+#                 self.play(FadeIn(bb))
+#                 x.append(bb)
+#             for i in x:
+#                 self.play(FadeOut(i))
+
+#             x=[]
+#             for i in range(mid,n) :
+#                 bb=square_swap(BLUE_D)
+#                 if(i==0):
+#                         bb.shift((n//2-1) * LEFT)
+#                 else :
+#                         bb.next_to(l[i-1], buff=0)
+#                 self.play(FadeIn(bb))
+#                 x.append(bb)
+#             for i in x:
+#                 self.play(FadeOut(i))
+                
+#             left=mergeSort(arr[:mid],mid,l)
+#             right=mergeSort(arr[mid:],n-mid,l)
+#             return merge(left,right,l)
+        
+#         bubs = square_text_box(str(arr[0]), BLUE_D, GREEN_B)
+#         bubs.shift((n//2-1) * LEFT)
+#         l=[]
+#         l.append(bubs)
+#         for i in range(1,n):
+#             bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
+#             bubs.next_to(l[-1], buff=0)
+#             l.append(bubs)
+#         for xa in l:
+#             self.play(GrowFromCenter(xa))
+#         self.wait(1)
+#         mergeSort(arr,n,l)
+            
+
+
+class knightTour(Scene):
+    
+    def construct(self):
+        print("Enter the size of the chess board ,which is maximum 8 ",end=" , ")
+        n=takeInt()
+        if(n>8):
+            print("Too Long input!")
+            return
+        arr=[[0 for i in range(n)] for j in range(n)]
+        dx=[2,1,-1,-2,-2,-1,1,2]
+        dy=[1,2,2,1,-1,-2,-2,-1]
+        def knightTour(arr,n,x,y,count,l):
+            if(count==n*n+1):
+                return n*n+1
+            arr[x][y]=count
+            text_c=Text(str(count))
+            text_c.scale(0.5)
+            if(y==0):
+                    text_c.shift((n//2-1) * LEFT)
+                    if x<n/2:
+                        text_c.shift(UP*size_sq*(n/2-x))
+                    elif x==n/2:
+                        pass
+                    else:
+                        text_c.shift(DOWN*size_sq*(x-n/2))
+            else:
+                    text_c.next_to(l[x][y-1], buff=0.2)
+            self.play(FadeIn(text_c))
+            self.wait(0.5)
+            count=count+1
+            l[x][y].set_fill(color=BLUE, opacity=0.7)
+            for i in range(8):
+                x1=x+dx[i]
+                y1=y+dy[i]
+                if(x1>=0 and x1<n and y1>=0 and y1<n and arr[x1][y1]==0):
+                    count=knightTour(arr,n,x1,y1,count,l)
+            l[x][y].set_fill(color=GREEN, opacity=0.7)
+            self.wait(0.7)
+            return count
+        l=[]
+        for i in range(n):
+            lt=[]
+            for j in range(n):
+
+                bb=square_text_box("", BLUE_D, GREEN_B)
+                if(len(lt)==0):
+                    bb.shift((n//2-1) * LEFT)
+                    if i<n/2:
+                        bb.shift(UP*size_sq*(n/2-i))
+                    elif i==n/2:
+                        pass
+                    else:
+                        bb.shift(DOWN*size_sq*(i-n/2))
+                else:
+                    bb.next_to(lt[-1], buff=0)
+                
+                lt.append(bb)
+                #self.play(FadeIn(bb))
+                self.add(bb)
+            l.append(lt)
+            text_h=Text("Knight's Tour", font="Arial", color=RED, size=2)
+            text_h.scale(0.5)
+            text_h.shift(UP*3.5)
+            self.play(Write(text_h))
+        c=knightTour(arr,n,0,0,1,l)
+        
+                
+        
+        
+        
+
+        
+
+        
+
+
 # next merge sort , greedy , backtrack like knight tour

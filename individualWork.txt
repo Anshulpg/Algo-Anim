@@ -8,6 +8,7 @@ MinHeap
 heapsort
 linearSearch
 two Sum
+backtracking
 
 Yash - 
 Tree inordered traversal,
@@ -16,3 +17,4 @@ postorder traversal
 levelorder traversal
 
 Akshika - 
+Stack
