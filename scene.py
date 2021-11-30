@@ -62,10 +62,19 @@ class bubbleSort(Scene):
                         
                         self.play(CyclicReplace(l[j+1], l[j]))
                         l[j+1],l[j]=l[j],l[j+1]
-                        
+                    text_a=Text("Maximum till now is "+str(arr[j+1]), font="Arial", color=YELLOW)
+                    text_a.shift(DOWN*2)
+                    self.play(FadeIn(text_a))
+                    self.wait(0.5)
+                    self.play(FadeOut(text_a))
                         #self.wait(0.1)
                     self.play(FadeOut(bubs_fill_box1), FadeOut(bubs_fill_box2))
                 l[-i-1].set_fill(RED_B,opacity=0.5)
+                text_a=Text(str(arr[-i-1])+" is now at its right position.", font="Arial", color=GREEN,size=1.5)
+                text_a.shift(DOWN*2)
+                self.play(FadeIn(text_a))
+                self.wait(0.5)
+                self.play(FadeOut(text_a))
         bubs = square_text_box(str(arr[0]), BLUE_D, GREEN_B)
         bubs.shift((n//2-1) * LEFT)
         l=[]
@@ -118,11 +127,24 @@ class selectionSort(Scene):
                     if arr[min_idx] > arr[j]:
                         min_idx = j
                     self.play(FadeOut(bubs_fill_box1), FadeOut(bubs_fill_box2))
-                        
+                    text_a=Text("Minimum till now is "+str(arr[min_idx]), font="Arial", color=YELLOW)
+                    text_a.shift(DOWN*2)
+                    self.play(FadeIn(text_a))
+                    self.wait(0.5)
+                    self.play(FadeOut(text_a))
+                
                 
                 arr[i], arr[min_idx] = arr[min_idx], arr[i]
                 self.play(CyclicReplace(l[i], l[min_idx]))
+                
+                l[min_idx].set_fill(RED_B,opacity=0.5)
                 l[i],l[min_idx]=l[min_idx],l[i]
+                text_a=Text(str(arr[i])+" is at its right place.", font="Arial", color=GREEN,size=1.5)
+                text_a.shift(DOWN*2)
+                self.play(FadeIn(text_a))
+                self.wait(0.5)
+                self.play(FadeOut(text_a))
+                
 
 
         bubs = square_text_box(str(arr[0]), BLUE_D, GREEN_B)
