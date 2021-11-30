@@ -192,13 +192,28 @@ class binarySearch(Scene):
                 self.wait(1.5)
                 if(arr[m]==x):
                     lis[m].set_fill(GREEN,opacity=0.6)
+                    text_a=Text(" SUCCESS.", font="Arial", color=GREEN,size=2)
+                    text_a.shift(DOWN*2)
+                    self.play(FadeIn(text_a))
+                    self.wait(0.5)
+                    self.play(FadeOut(text_a))
                     self.wait(1.5)
                     return
                 elif(arr[m]<x):
+                    text_a=Text(str(arr[m])+" is less than "+str(x)+", hence elements Left to it are of no use.", font="Arial", color=BLUE,size=0.5)
+                    text_a.shift(DOWN*2)
+                    self.play(FadeIn(text_a))
+                    self.wait(0.8)
+                    self.play(FadeOut(text_a))
                     for i in range(low,m+1):
                         lis[i].set_fill(RED,opacity=0.6)
                     low=m+1
                 else :
+                    text_a=Text(str(arr[m])+" is greater than "+str(x)+", hence elements Right to it are of no use.", font="Arial", color=YELLOW,size=0.5)
+                    text_a.shift(DOWN*2)
+                    self.play(FadeIn(text_a))
+                    self.wait(0.8)
+                    self.play(FadeOut(text_a))
                     for i in range(m,r+1):
                         lis[i].set_fill(RED,opacity=0.6)
                     r=m-1
