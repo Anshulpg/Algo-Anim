@@ -74,7 +74,10 @@ class bubbleSort(Scene):
             bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
             bubs.next_to(l[-1], buff=0)
             l.append(bubs)
-        
+        text_h=Text("Bubble Sort", font="Arial", color=RED, size=2.5)
+        text_h.scale(0.5)
+        text_h.shift(UP*3)
+        self.play(Write(text_h))
         for x in l:
             self.play(GrowFromCenter(x))
     
@@ -130,7 +133,10 @@ class selectionSort(Scene):
             bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
             bubs.next_to(l[-1], buff=0)
             l.append(bubs)
-        
+        text_h=Text("Selection Sort", font="Arial", color=RED, size=2.5)
+        text_h.scale(0.5)
+        text_h.shift(UP*3)
+        self.play(Write(text_h))
         for x in l:
             self.play(GrowFromCenter(x))
     
@@ -185,7 +191,10 @@ class binarySearch(Scene):
             bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
             bubs.next_to(l[-1], buff=0)
             l.append(bubs)
-        
+        text_h=Text("Binary Search", font="Arial", color=RED, size=2.5)
+        text_h.scale(0.5)
+        text_h.shift(UP*3)
+        self.play(Write(text_h))
         for y in l:
             self.play(GrowFromCenter(y))
     
@@ -269,7 +278,7 @@ class insertionSort(Scene):
 
 
 class insertionSort(Scene):
-    # color krna h blocks ko
+    
     def construct(self):
         arr=takeArray()
         n=len(arr)
@@ -303,7 +312,10 @@ class insertionSort(Scene):
             bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
             bubs.next_to(l[-1], buff=0)
             l.append(bubs)
-        
+        text_h=Text("Insertion Sort", font="Arial", color=RED, size=2.5)
+        text_h.scale(0.5)
+        text_h.shift(UP*3)
+        self.play(Write(text_h))
         for x in l:
             self.play(GrowFromCenter(x))
     
@@ -400,7 +412,10 @@ class maxHeap(Scene):
             bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
             bubs.next_to(l[-1], buff=0)
             l.append(bubs)
-        
+        text_h=Text("Max Heap", font="Arial", color=RED, size=2.5)
+        text_h.scale(0.5)
+        text_h.shift(UP*3)
+        self.play(Write(text_h))
         for x in l:
             self.play(GrowFromCenter(x))
         self.wait(1)
@@ -491,7 +506,10 @@ class minHeap(Scene):
             bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
             bubs.next_to(l[-1], buff=0)
             l.append(bubs)
-        
+        text_h=Text("Min Heap", font="Arial", color=RED, size=2.5)
+        text_h.scale(0.5)
+        text_h.shift(UP*3)
+        self.play(Write(text_h))
         for x in l:
             self.play(GrowFromCenter(x))
         self.wait(1)
@@ -592,6 +610,11 @@ class heapSort(Scene):
         bubs = square_text_box(str(arr[0]), BLUE_D, GREEN_B)
         bubs.shift((n//2-1) * LEFT)
         l=[]
+        text_h=Text("Heap Sort", font="Arial", color=RED, size=2.5)
+        text_h.scale(0.5)
+        text_h.shift(UP*3)
+        self.play(Write(text_h))
+
         l.append(bubs)
         for i in range(1,n):
             bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
@@ -620,10 +643,10 @@ class twoPointer(Scene):
         if(n==0):
             print("No input given")
             return
-        
+        print("Enter the value of sum to find in array , ",end=" " )
         x=takeInt()
         def twoPointer(arr,n,l):
-            text_a=Text(str(x))
+            text_a=Text("Sum to find = "+str(x))
             text_a.scale(0.5)
             text_a.shift(UP*size_sq*3)
             self.add(text_a)
@@ -650,12 +673,23 @@ class twoPointer(Scene):
                     self.play(FadeOut(bubs_fill_box1),FadeOut(bubs_fill_box2))
                     l[i].set_fill(color=GREEN, opacity=0.5)
                     l[j].set_fill(color=GREEN, opacity=0.5)
+                    text_t=Text("Current Sum = "+str(x)+" ,Hence Found", font="Arial", color=GREEN, size=2.5)
+                    text_t.scale(0.5)
+                    text_t.shift(DOWN*size_sq*3)
+                    self.play(Write(text_t))
                     self.wait(2.5)
                     break
                 elif(arr[i]+arr[j]<x):
+                    
+                    text_t=Text("Current Sum = "+str(arr[i]+arr[j])+" is less than "+ str(x) +" ,Hence we increase i", font="Arial", color=YELLOW, size=1.5)
+                    text_t.scale(0.5)
+                    text_t.shift(DOWN*size_sq*3)
+                    self.play(Write(text_t))
+                    self.wait(1)
                     self.play(FadeOut(bubs_fill_box1))
                     l[i].set_fill(color=RED, opacity=0.5)
-                    self.wait(1)
+                    self.remove(text_t)
+                    self.wait(0.5)
                     i=i+1
                     if(i==j):
                         self.play(FadeOut(bubs_fill_box2))
@@ -664,9 +698,16 @@ class twoPointer(Scene):
                         break
                     
                 else:
+                    
+                    text_t=Text("Current Sum = "+str(arr[i]+arr[j])+" is more than "+ str(x) +" ,Hence we decrease j", font="Arial", color=YELLOW, size=1.5)
+                    text_t.scale(0.5)
+                    text_t.shift(DOWN*size_sq*3)
+                    self.play(Write(text_t))
+                    self.wait(1)
                     self.play(FadeOut(bubs_fill_box2))
                     l[j].set_fill(color=RED, opacity=0.5)
-                    self.wait(1)
+                    self.remove(text_t)
+                    self.wait(0.5)
                     j=j-1
                     if(i==j):
                         self.play(FadeOut(bubs_fill_box1))
@@ -682,6 +723,10 @@ class twoPointer(Scene):
             bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
             bubs.next_to(l[-1], buff=0)
             l.append(bubs)
+        text_h=Text("Two Pointer (Two sum)", font="Arial", color=RED, size=2.5)
+        text_h.scale(0.5)
+        text_h.shift(UP*3)
+        self.play(Write(text_h))
         for xa in l:
             self.play(GrowFromCenter(xa))
         self.wait(1)
@@ -735,6 +780,10 @@ class linearSearch(Scene):
                 bubs = square_text_box(str(arr[i]), BLUE_D, GREEN_B)
                 bubs.next_to(l[-1], buff=0)
                 l.append(bubs)
+            text_h=Text("Linear Search", font="Arial", color=RED, size=2.5)
+            text_h.scale(0.5)
+            text_h.shift(UP*3)
+            self.play(Write(text_h))
             for xa in l:
                 self.play(GrowFromCenter(xa))
             self.wait(1)
@@ -890,13 +939,4 @@ class knightTour(Scene):
         c=knightTour(arr,n,0,0,1,l)
         
                 
-        
-        
-        
-
-        
-
-        
-
-
-# next merge sort , greedy , backtrack like knight tour
+    
