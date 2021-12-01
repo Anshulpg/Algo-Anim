@@ -808,7 +808,7 @@ class twoPointer(Scene):
                     
                 else:
                     
-                    text_t=Text("Current Sum = "+str(arr[i]+arr[j])+" is more than "+ str(x) +" ,Hence we decrease j", font="Arial", color=YELLOW, size=1.5)
+                    text_t=Text("Current Sum = "+str(arr[i]+arr[j])+" is more than "+ str(x) +" ,Hence we decrease j", font="Arial", color=BLUE, size=1.5)
                     text_t.scale(0.5)
                     text_t.shift(DOWN*size_sq*3)
                     self.play(Write(text_t))
@@ -871,11 +871,23 @@ class linearSearch(Scene):
                     self.play(FadeIn(bubs_fill_box1))
                     self.wait(0.5)
                     if(arr[i]==x):
+                        text_h=Text("Current element is "+str(arr[i])+" Hence Found ! ", font="Arial", color=GREEN, size=1.2)
+                        text_h.scale(0.5)
+                        text_h.shift(DOWN*size_sq*3)
+                        self.play(Write(text_h))
+                        self.wait(1)
+                        self.play(FadeOut(text_h))
                         self.play(FadeOut(bubs_fill_box1))
                         l[i].set_fill(color=GREEN, opacity=0.6)
                         self.wait(2.5)
                         break
                     else:
+                        text_h=Text("Current element is "+str(arr[i])+" and not equal to "+str(x), font="Arial", color=RED, size=1)
+                        text_h.scale(0.5)
+                        text_h.shift(DOWN*size_sq*3)
+                        self.play(Write(text_h))
+                        self.wait(1)
+                        self.play(FadeOut(text_h))
                         self.play(FadeOut(bubs_fill_box1))
                         
                         l[i].set_fill(color=RED, opacity=0.5)
@@ -1018,7 +1030,13 @@ class knightTour(Scene):
                 if(x1>=0 and x1<n and y1>=0 and y1<n and arr[x1][y1]==0):
                     count=knightTour(arr,n,x1,y1,count,l)
             l[x][y].set_fill(color=GREEN, opacity=0.7)
-            self.wait(0.7)
+            text_h=Text(str(arr[x][y]) +" is processed and we Backtrack ", font="Arial", color=RED, size=1.3)
+            text_h.scale(0.8)
+            text_h.shift(DOWN*2)
+            self.play(Write(text_h))
+            self.wait(0.2)
+            self.play(FadeOut(text_h))
+            self.wait(0.3)
             return count
         l=[]
         for i in range(n):
