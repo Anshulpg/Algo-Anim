@@ -654,6 +654,16 @@ class heapSort(Scene):
                         bubs_fill_box2.next_to(lis[largest-1], buff=0)
             self.play(FadeIn(bubs_fill_box2))
             self.wait(0.2)
+            if(largest !=i):
+                text_h=Text("Largest is "+str(arr[largest])+" , Hence we swap and then heapify "+str(arr[i]), font="Courier", color=YELLOW)
+                text_h.scale(0.8)
+            else:
+                text_h=Text("Largest is "+str(arr[largest])+" , Hence we do not swap", font="Courier", color=BLUE)
+            text_h.scale(0.8)
+            text_h.shift(2*DOWN)
+            self.play(Write(text_h))
+            self.wait(0.5)
+            self.remove(text_h)
             if(largest!=i):
 
                 arr[i],arr[largest]=arr[largest],arr[i]
@@ -678,7 +688,12 @@ class heapSort(Scene):
             for i in range(n//2-1 , -1, -1):
                 
                 heapify(arr, n, i,l)
-            
+            text_h=Text("Base heapify is done now , sorting will start", font="Courier", color=PINK)
+            text_h.scale(0.65)
+            text_h.shift(2*DOWN)
+            self.play(Write(text_h))
+            self.wait(0.5)
+            self.remove(text_h)
             self.wait(1.5)
            
             for i in range(n-1,0,-1):
@@ -687,6 +702,13 @@ class heapSort(Scene):
                 self.play(CyclicReplace(l[0],l[i])) 
                 l[i],l[0]=l[0],l[i]
                 l[i].set_fill(color=RED_C, opacity=0.5)
+                text_h=Text(str(arr[i]) +" is at right place , now we heapify "+str(arr[0]), font="Courier", color=RED)
+                text_h.scale(0.65)
+                text_h.shift(2*DOWN)
+                self.play(Write(text_h))
+                self.wait(0.7)
+                self.remove(text_h)
+                self.wait(1)
                 heapify(arr,i,0,l)
 
         bubs = square_text_box(str(arr[0]), BLUE_D, GREEN_B)
@@ -708,7 +730,12 @@ class heapSort(Scene):
         self.wait(1)
       
         heapSort(arr,l)
-
+        text_h=Text("Heap Sort is done now !", font="Courier", color=RED)
+        text_h.scale(1.4)
+        text_h.shift(2*DOWN)
+        self.play(Write(text_h))
+        self.wait(0.5)
+        self.remove(text_h)
 
 
 class twoPointer(Scene):
