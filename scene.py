@@ -333,14 +333,30 @@ class insertionSort(Scene):
                 j = i-1
                 x=l[j]
                 while j >= 0 and key < arr[j] :
+                        text_h=Text("We swap "+str(arr[j])+" and "+str(key), font="Courier", color=YELLOW)
+                        text_h.scale(1.2)
+                        text_h.shift(2*DOWN)
+                        self.play(Write(text_h))
+                        self.wait(0.5)
+                        self.remove(text_h)
                         arr[j + 1] = arr[j]
-                        
+                        bub1=square_swap(BLUE_D)
+                        bub1.shift(l[j].get_center())
+                        bub2=square_swap(BLUE_D)
+                        bub2.shift(l[j+1].get_center())
+                        self.play(FadeIn(bub1),FadeIn(bub2))
                         self.play(CyclicReplace(l[j], l[j+1]))
                         l[j+1],l[j]=l[j],l[j+1]
+                        self.play(FadeOut(bub1),FadeOut(bub2))
                         j -= 1
                 arr[j + 1] = key
                 #l[j+1]=x
-
+                text_h=Text(str(key)+" is inserted", font="Courier", color=GREEN)
+                text_h.scale(1.4)
+                text_h.shift(2*DOWN)
+                self.play(Write(text_h))
+                self.wait(0.5)
+                self.remove(text_h)
         bubs = square_text_box(str(arr[0]), BLUE_D, GREEN_B)
         bubs.shift((n//2-1) * LEFT)
         l=[]
