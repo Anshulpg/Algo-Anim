@@ -433,6 +433,16 @@ class maxHeap(Scene):
                         bubs_fill_box2.next_to(lis[largest-1], buff=0)
             self.play(FadeIn(bubs_fill_box2))
             self.wait(0.2)
+            if(largest !=i):
+                text_h=Text("Largest is "+str(arr[largest])+" , Hence we swap and then heapify "+str(arr[i]), font="Courier", color=YELLOW)
+                text_h.scale(0.8)
+            else:
+                text_h=Text("Largest is "+str(arr[largest])+" , Hence we do not swap", font="Courier", color=BLUE)
+            text_h.scale(0.8)
+            text_h.shift(2*DOWN)
+            self.play(Write(text_h))
+            self.wait(0.5)
+            self.remove(text_h)
             if(largest!=i):
 
                 arr[i],arr[largest]=arr[largest],arr[i]
@@ -474,6 +484,11 @@ class maxHeap(Scene):
         self.wait(1)
       
         maxHeap(arr,l)
+        text_h=Text("Max Heap is done now !", font="Arial", color=RED, size=1.7)
+        text_h.shift(DOWN*2)
+        self.play(Write(text_h))
+        self.wait(1.5)
+        
 
 
 class minHeap(Scene):
@@ -527,6 +542,17 @@ class minHeap(Scene):
                         bubs_fill_box2.next_to(lis[smallest-1], buff=0)
             self.play(FadeIn(bubs_fill_box2))
             self.wait(0.2)
+            if(smallest !=i):
+                text_h=Text("Smallest is "+str(arr[smallest])+" , Hence we swap and then heapify "+str(arr[i]), font="Courier", color=YELLOW)
+                text_h.scale(0.8)
+            else:
+                text_h=Text("Smallest is "+str(arr[smallest])+" , Hence we do not swap", font="Courier", color=BLUE)
+            text_h.scale(0.8)
+            text_h.shift(2*DOWN)
+            self.play(Write(text_h))
+            self.wait(0.5)
+            self.remove(text_h)
+
             if(smallest!=i):
 
                 arr[i],arr[smallest]=arr[smallest],arr[i]
@@ -568,7 +594,10 @@ class minHeap(Scene):
         self.wait(1)
       
         minHeap(arr,l)
-
+        text_h=Text("Min Heap is done now !", font="Arial", color=RED, size=1.7)
+        text_h.shift(DOWN*2)
+        self.play(Write(text_h))
+        self.wait(1.5)
 
 
 
